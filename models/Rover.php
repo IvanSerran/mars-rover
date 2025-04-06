@@ -15,7 +15,6 @@
             $this->direction = $direction;
             $this->grid = $grid;
             $this->obstacles = $obstacles;
-            // ?: $this->randomObstacles(25);
         }
 
         public function getX(){
@@ -33,23 +32,8 @@
         public function getObstacles(){
             return $this->obstacles;
         }
- 
-        // function for generate random obstacles
-        // public function randomObstacles($count){
-        //     $obstacles = [];
 
-        //     for($i = 0; $i < $count; $i++){
-        //         $ox = rand(0, $this->grid - 1);
-        //         $oy = rand(0, $this->grid - 1);
-                
-        //         if($ox !== $this->x || $oy !== $this->y){
-        //             $obstacles[] = [$ox, $oy];
-        //         }
-        //     }
-
-        //     return $obstacles;
-        // }
-
+        // function move rover
         public function move($commands){
             $upperLetter = str_split(strtoupper($commands));
 
@@ -98,6 +82,7 @@
             $this->direction = $this->directions[($index + 1) % 4];
         }
 
+        // function for to forward the rover
         private function forward(){
             $newX = $this->x;
             $newY = $this->y;

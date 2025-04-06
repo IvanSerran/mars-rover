@@ -11,6 +11,7 @@
             $commands = $_POST['commands'] ?? '';
             $grid = 200;
 
+            // Generate user-entered obstacles
             $obstaclesCount = $_POST['obstacles'] ?? 0;
             $obstacles = [];
             
@@ -20,9 +21,11 @@
                 $obstacles[] = [$ox, $oy];
             }
 
+            // Rover instantiate
             $rover = new Rover($x, $y, $direction, $grid, $obstacles);
             $result = $rover->move($commands);
 
+            // Get obstacles of the rover
             $obstacles = $rover->getObstacles();
 
             include 'views/rover_result.php';
