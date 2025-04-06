@@ -37,6 +37,6 @@
                 Error: <?= $result['message'] ?>
             </div>
         <?php endif; ?>
-        <a href="/">Send new commands</a>
+        <a href="index.php">Send new commands</a>
     </body>
 </html>

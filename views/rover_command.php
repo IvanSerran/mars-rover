@@ -24,9 +24,12 @@
                         echo '<option value='.$key.'>'.$label.'</option>';
                     }
                 ?>
-            </select>
+            </select><br><br>
+
+            <label for="obstacles">Number of obstacles:</label>
+            <input type="number" name="obstacles" min="50" max='30000' required><br><br>
             
-            <label for="commands">Commands: </label>
+            <label for="commands">Commands (F,L,R): </label>
             <input type="text" name="commands" pattern='[FLRflr]*' required><br><br>
 
             <button type="submit">Send</button>

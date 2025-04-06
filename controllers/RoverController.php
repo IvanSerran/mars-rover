@@ -9,11 +9,19 @@
             $y = $_POST['y'] ?? 0;
             $direction = $_POST['direction'] ?? 'N';
             $commands = $_POST['commands'] ?? '';
-
             $grid = 200;
 
-            $rover = new Rover($x, $y, $direction, $grid);
-            $result = $rover->motion($commands);
+            $obstaclesCount = $_POST['obstacles'] ?? 0;
+            $obstacles = [];
+            
+            for ($i = 0; $i < $obstaclesCount; $i++) {
+                $ox = rand(0, $grid - 1);
+                $oy = rand(0, $grid - 1);
+                $obstacles[] = [$ox, $oy];
+            }
+
+            $rover = new Rover($x, $y, $direction, $grid, $obstacles);
+            $result = $rover->move($commands);
 
             $obstacles = $rover->getObstacles();
 

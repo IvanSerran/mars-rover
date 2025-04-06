@@ -14,7 +14,8 @@
             $this->y = $y;
             $this->direction = $direction;
             $this->grid = $grid;
-            $this->obstacles = $obstacles ?: randomObstacles(25);
+            $this->obstacles = $obstacles;
+            // ?: $this->randomObstacles(25);
         }
 
         public function getX(){
@@ -34,22 +35,22 @@
         }
  
         // function for generate random obstacles
-        public function randomObstacles($count){
-            $obstacles = [];
+        // public function randomObstacles($count){
+        //     $obstacles = [];
 
-            for($i = 0; $i < $count; $i++){
-                $ox = rand(0, $this->grid - 1);
-                $oy = rand(0, $this->grid - 1);
+        //     for($i = 0; $i < $count; $i++){
+        //         $ox = rand(0, $this->grid - 1);
+        //         $oy = rand(0, $this->grid - 1);
                 
-                if($ox !== $this->x || $oy !== $this->y){
-                    $obstacles[] = [$ox, $oy];
-                }
-            }
+        //         if($ox !== $this->x || $oy !== $this->y){
+        //             $obstacles[] = [$ox, $oy];
+        //         }
+        //     }
 
-            return $obstacles;
-        }
+        //     return $obstacles;
+        // }
 
-        public function motion($commands){
+        public function move($commands){
             $upperLetter = str_split(strtoupper($commands));
 
             foreach($upperLetter as $up){
